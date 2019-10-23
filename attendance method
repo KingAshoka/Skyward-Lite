@@ -1,3 +1,25 @@
 public void Attendance() {
-  //uhh
+  if (access == 0) {
+    for (count = 0; count < 5; count++) {
+      attendance[count] = 0;
+      if (attendance[count] = 0) {
+        System.out.println(username[count] + " is present");
+      }
+    }
+    while (true) {
+    int student = 0;
+      System.out.println("Enter student number");
+      System.out.println("1: halepash000");
+      System.out.println("2: caiton000");
+      System.out.println("3: kulkaamo000");
+      System.out.println("4: mengsha000");
+      student = reader.nextInt();
+      
+      
+      System.out.println("How would you like to edit attendance?");
+    }
+    
+  } else {
+    
+  }
 }
