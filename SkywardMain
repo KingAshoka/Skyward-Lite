@@ -3,7 +3,7 @@ public class SkywardMain {
 	public static void main(String[] args) {
 		// Main class of Skyward; will start Skyward project
 		Skyward s = new Skyward();
-		//Add method
+		s.Login();
 	}
 
 }
