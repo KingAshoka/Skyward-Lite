@@ -10,6 +10,27 @@ public class SkywardCode {
 	private int[] block3 = new int[5];
 	private int[] block4 = new int[5];
 	
+	public void Login() {
+		Scanner reader = new Scanner(System.in);
+		int allow = 0; //this determines if the user can access their account
+		
+		System.out.print("Username: ");
+		user = reader.next();
+		System.out.print("Password: ");
+		pass = reader.next();
+		do {
+			for (count = 0; count < 5; count ++) {
+				if (user == username[count]) {
+					if (pass == password[count]) {
+						allow = 1;
+					} else {
+						System.out.print("Wrong password");
+					}
+				}
+			}
+		} while (allow == 0);
+	}
+	
 	public static void main(String[] arg) {
 		
 	}
