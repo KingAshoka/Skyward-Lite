@@ -1,4 +1,4 @@
-public void Choice(String[] username) {
+public void Choice() {
   while (true) {
     int choice = 0;
 		    while (true) {
@@ -31,7 +31,7 @@ public void Choice(String[] username) {
 	case 4:
 		//Exits program if choice = 4
 		System.exit(0);
-    }
+		}
     
-  }
+	}
 }
