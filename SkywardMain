@@ -4,6 +4,7 @@ public class SkywardMain {
 		// Main class of Skyward; will start Skyward project
 		Skyward s = new Skyward();
 		s.Login();
+		s.Choice();
 	}
 
 }
