@@ -12,6 +12,7 @@ public class SkywardCode {
 	
 	private String user, pass; //these are the username and password that the user inputs
 	private int count, access; //this is the loop count and differentiates between teacher and student
+	public int wFormat, hFormat; //These will be variables to create boards
 	
 	public static void main(String[] arg) {
 		
