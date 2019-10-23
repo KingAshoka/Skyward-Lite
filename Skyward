@@ -1,4 +1,6 @@
 public class SkywardCode {
+import Java.util.Scanner();
+Scanner reader = new Scanner(System.in);
   public static void main(String[] arg) { //this is for testing code, a new main will be created
     
     string[] username = new string[5]; //Dunno if they are ints
