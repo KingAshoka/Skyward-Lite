@@ -10,6 +10,9 @@ public class SkywardCode {
 	private int[] block3 = new int[5];
 	private int[] block4 = new int[5];
 	
+	private String user, pass; //these are the username and password that the user inputs
+	private int count, access; //this is the loop count and differentiates between teacher and student
+	
 	public void Login() {
 		Scanner reader = new Scanner(System.in);
 		int allow = 0; //this determines if the user can access their account
@@ -23,6 +26,7 @@ public class SkywardCode {
 				if (user == username[count]) {
 					if (pass == password[count]) {
 						allow = 1;
+						access = 0;
 					} else {
 						System.out.print("Wrong password");
 					}
