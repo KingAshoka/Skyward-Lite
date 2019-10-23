@@ -1,11 +1,8 @@
 public class SkywardCode {
-import Java.util.Scanner();
-Scanner reader = new Scanner(System.in);
+  private string[] username = new String{TikaKude, halepash000, caitony000, kulkaamo000, mengsha000};
+  private string[] password = new String{MasterPassword, correcthorsebatterystaple, Tr0ub4dor, mtgisgreat, APStudentSupreme}; 
+  private int grades = new int[5];
+    
   public static void main(String[] arg) { //this is for testing code, a new main will be created
-    
-    string[] username = new string[5]; //Dunno if they are ints
-    string[] password = new string[5]; 
-    int grades = new int[5];
-    
   }
 }
