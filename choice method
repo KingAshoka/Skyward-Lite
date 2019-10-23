@@ -15,8 +15,22 @@ public void Choice(String[] username) {
     }
     
     switch (choice) {
-      case 1:
-        Attendance(
+    //Change method names as needed
+    	case 1:
+		//Goes to attendance method if choice = 1
+		Attendance();
+		break;
+	case 2:
+		//Goes to schedule method if choice = 2
+		Schedule();
+		break;
+	case 3:
+		//Goes to grades method if choice = 3
+		Grade();
+		break;
+	case 4:
+		//Exits program if choice = 4
+		System.exit(0);
     }
     
   }
