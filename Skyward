@@ -1,5 +1,9 @@
 public class SkywardCode {
   public static void main(String[] arg) { //this is for testing code, a new main will be created
     
+    int username = new int[5]; //Dunno if they are ints
+    int password = new int[5]; 
+    int grades = new int[5];
+    
   }
 }
