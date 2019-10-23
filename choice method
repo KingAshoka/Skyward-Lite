@@ -1,16 +1,17 @@
 public void Choice(String[] username) {
   while (true) {
     int choice = 0;
-    while (true) {
-      System.out.println("Enter choice of corresponding operation (1-4)");
-      System.out.println("1: Attendance");
-      System.out.println("2: Schedule");
-      System.out.println("3: Grades");
-      System.out.println("4: Quit");
-      choice = reader.nextInt();
-      if (choice > 0 || choice <= 4) {
-        break;
-      }
+		    while (true) {
+		    if (choice <= 0 || choice > 4) {
+		      System.out.println("Enter choice of corresponding operation (1-4)");
+		      System.out.println("1: Attendance");
+		      System.out.println("2: Schedule");
+		      System.out.println("3: Grades");
+		      System.out.println("4: Quit");
+		      choice = reader.nextInt();
+		    } else {
+		    	  break;
+        }
     }
     
     switch (choice) {
