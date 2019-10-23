@@ -1,5 +1,5 @@
 public class SkywardCode {
-	private String[] username = {"TikaKude", "halepash000", "caitony000", "kulkaamo000", "mengsha000"};
+	private String[] username = {"TikaKude", "halepash000", "caiton000", "kulkaamo000", "mengsha000"};
 	private String[] password = {"MasterPassword", "correcthorsebatterystaple", "Tr0ub4dor", "mtgisgreat", "APStudentSupreme"}; 
 	private int[] grades = new int[5];
 	private int[] attendance = new int[5];
