@@ -10,7 +10,7 @@
 				if (user == username[count]) {
 					if (pass == password[count]) {
 						allow = 1;
-						access = 0;
+						access = count;
 					} else {
 						System.out.print("Wrong password");
 					}
