@@ -1,0 +1,20 @@
+	public void Login() {
+		int allow = 0; //this determines if the user can access their account
+		
+		System.out.print("Username: ");
+		user = reader.next();
+		System.out.print("Password: ");
+		pass = reader.next();
+		do {
+			for (count = 0; count < 5; count ++) {
+				if (user == username[count]) {
+					if (pass == password[count]) {
+						allow = 1;
+						access = 0;
+					} else {
+						System.out.print("Wrong password");
+					}
+				}
+			}
+		} while (allow == 0);
+	}
