@@ -1,25 +1,57 @@
 public void Attendance() {
   if (access == 0) {
-    for (count = 0; count < 5; count++) {
+  //If person is the teacher
+    for (count = 1; count < 5; count++) {
       attendance[count] = 0;
-      if (attendance[count] = 0) {
+      if (attendance[count] == 0) {
         System.out.println(username[count] + " is present");
       }
     }
     while (true) {
-    int student = 0;
-      System.out.println("Enter student number");
+    int student = 0, where = 0;
+    if (student < 1 || student > 5) {
+      System.out.println();
+      System.out.println("Enter student number or quit");
       System.out.println("1: halepash000");
       System.out.println("2: caiton000");
       System.out.println("3: kulkaamo000");
       System.out.println("4: mengsha000");
+      System.out.println("5: Quit");
       student = reader.nextInt();
-      
-      
-      System.out.println("How would you like to edit attendance?");
+    } else {
+      break;
     }
+      
+    if (student == 5) {
+      choice();
+    } else {
+      while (true) {
+        if (where < 1 || where > 3) {
+         System.out.println("How would you like to edit attendance for " + username[student] + "?");
+         System.out.println("1: Present");
+         System.out.println("2: Tardy");
+         System.out.println("3: Absent");
+         where = reader.nextInt();
+        } else {
+          break;
+        }
+      }
+      
+      switch(where) {
+        case 1:
+          attendance[student] = 0;
+          break;
+        case 2:
+          attendance[student] = 1;
+          break;
+        case 3:
+          attendance[student] = 2;
+          break;
+      }
+    }
+  }
     
   } else {
-    
+    System.out.println("You (" + username[count] + ") are " + attendance[count]);
   }
 }
