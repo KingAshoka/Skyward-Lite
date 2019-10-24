@@ -1,28 +1,25 @@
-	public void Login() {
+public void Login() {
 		int allow = 0; //this determines if the user can access their account
 		
 		do {
-			allow = 0;
 			System.out.print("Username: ");
 			user = reader.nextLine();
 			System.out.print("Password: ");
 			pass = reader.nextLine();
 			for (count = 0; count < 5; count ++) {
-				if (allow == 0) {
-					if (user.equals(username[count])) {
-						if (pass.equals(password[count])) {
-							allow = 1; //this finishes both loops
-							access = count;
-							System.out.println("You have gained access");
-						} else {
-							System.out.println("Wrong password \n"); // \n is return
-							allow = 2; //this breaks for loop and makes you reenter the username and password
-						}
+				if (user.equals(username[count])) {
+					if (pass.equals(password[count])) {
+						access = count;
+						allow = 1; //this ends the loop
+						System.out.println("Welcome, " + username[access]);
 					} else {
-						System.out.println("Wrong username or password \n");
-						allow = 2; //all allow = 2 does the same thing
+						System.out.println("Mismatched password \n"); //\n is a return
+					}
+				} else {
+					if (allow == 0 && count == 4 && user.equals(username[count]) == false) { //these conditions are so that
+						System.out.println("Wrong username or password \n");	//wrong message isn't printed out five times
 					}
 				}
 			}
-		} while (allow == 0 || allow == 2);
+		} while (allow == 0);
 	}
