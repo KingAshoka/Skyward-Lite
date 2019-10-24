@@ -2,8 +2,8 @@ public void Attendance() {
   if (access == 0) {
   //If person is the teacher
     for (count = 1; count < 5; count++) {
-      attendance[count] = 0;
-        System.out.println(username[count] + " is present");
+        System.out.print(username[count] + " is ");
+        UpdateAttendance(count);
     }
     while (true) {
     int student = 0, where = 0;
@@ -56,6 +56,8 @@ public void Attendance() {
   }
     
   } else {
-    System.out.println("You (" + username[count] + ") are " + attendance[count]);
+    System.out.print("You (" + username[count] + ") are ");
+    UpdateAttendance(count);
+    Choice();
   }
 }
