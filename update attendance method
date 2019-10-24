@@ -1,0 +1,9 @@
+public void UpdateAttendance(int student) {
+  if (attendance[student] == 0) {
+    System.out.println("present.");
+  } if (attendance[student] == 1) {
+    System.out.println("tardy.");
+  } if (attendance[student] == 2) {
+    System.out.println("absent.");
+  }
+}
