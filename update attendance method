@@ -1,9 +1,13 @@
 public void UpdateAttendance(int student) {
+//General method to easily change the attendance of the student
   if (attendance[student] == 0) {
+  //If value of attendance array for imported student number is 0, prints out present
     System.out.println("present.");
   } if (attendance[student] == 1) {
+  //If value of attendance array for imported student number is 1, prints out tardy
     System.out.println("tardy.");
   } if (attendance[student] == 2) {
+  //If value of attendance array for imported student number is 2, prints out absent
     System.out.println("absent.");
   }
 }
