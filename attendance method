@@ -3,9 +3,7 @@ public void Attendance() {
   //If person is the teacher
     for (count = 1; count < 5; count++) {
       attendance[count] = 0;
-      if (attendance[count] == 0) {
         System.out.println(username[count] + " is present");
-      }
     }
     while (true) {
     int student = 0, where = 0;
@@ -23,7 +21,7 @@ public void Attendance() {
     }
       
     if (student == 5) {
-      choice();
+      Choice();
     } else {
       while (true) {
         if (where < 1 || where > 3) {
@@ -48,6 +46,12 @@ public void Attendance() {
           attendance[student] = 2;
           break;
       }
+      
+      for (count = 1; count < 5; count++) {
+        System.out.print(username[count] + " is ");
+        UpdateAttendance(count);
+      }
+      
     }
   }
     
