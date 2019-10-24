@@ -7,7 +7,8 @@ public void Choice() {
 		      System.out.println("1: Attendance");
 		      System.out.println("2: Schedule");
 		      System.out.println("3: Grades");
-		      System.out.println("4: Quit");
+		      System.out.println("4: Logout");
+		      System.out.println("5: Quit");
 		      choice = reader.nextInt();
 		    } else {
 		    	  break;
@@ -29,7 +30,11 @@ public void Choice() {
 		Grade();
 		break;
 	case 4:
-		//Exits program if choice = 4
+		//Goes back to login method and "logs out" of current user
+		Login();
+		break;
+	case 5:
+		//Exits program if choice = 5
 		System.exit(0);
 		}
     
