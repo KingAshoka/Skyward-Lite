@@ -54,7 +54,7 @@
 			}
 
 		} else {
-			System.out.print("You " + username[access] + " are ");
+			System.out.print("You (" + username[access] + ") are ");
 			UpdateAttendance(access);
 			Choice();
 		}
