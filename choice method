@@ -31,6 +31,7 @@ public void Choice() {
 		break;
 	case 4:
 		//Goes back to login method and "logs out" of current user
+		String dummy = reader.nextLine(); // Big dumm
 		Login();
 		break;
 	case 5:
