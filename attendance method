@@ -1,4 +1,5 @@
 	public void Attendance() {
+	//Method to track attendance. Teacher can change students and students can view
 		if (access == 0) {
 			// If person is the teacher
 			for (count = 1; count < 5; count++) {
@@ -8,7 +9,7 @@
 			}
 			while (true) {
 				// Loops this forever until they go back to choice
-				int student = 0, where = 0; // Initalizes variables for method
+				int student = 0, where = 0; // Initalizes variables for method and resets them each time. 
 				do {
 					// Lists choices for attendance and forces person to choose legitimate number
 					System.out.println(); // Adds some spacing
@@ -26,36 +27,41 @@
 					Choice();
 				} else {
 					do {
+						//Prompts user to change attendance for specific student
 						System.out.println("How would you like to edit attendance for " + username[student] + "?");
 						System.out.println("1: Present");
 						System.out.println("2: Tardy");
 						System.out.println("3: Absent");
 						where = reader.nextInt();
-					} while (where < 1 || where > 3);
+					} while (where < 1 || where > 3); //Forces user to stay within bounds
 
 					switch (where) {
 					case 1:
+						//Assigns number for student's position as 0 (Present)
 						attendance[student] = 0;
 						break;
 					case 2:
+						//Assigns number for student's position as 1 (Tardy)
 						attendance[student] = 1;
 						break;
 					case 3:
+						//Assigns number for student's position as 2 (Absent)
 						attendance[student] = 2;
 						break;
 					}
 
 					for (count = 1; count < 5; count++) {
+						//Reprints out updated attendance
 						System.out.print(username[count] + " is ");
-						UpdateAttendance(count);
+						UpdateAttendance(count); //Goes to Update Attendance method to change their attendance
 					}
 
 				}
 			}
 
 		} else {
-			System.out.print("You (" + username[access] + ") are ");
-			UpdateAttendance(access);
-			Choice();
+			System.out.print("You (" + username[access] + ") are "); //Prints out student's personal attendance if is a student
+			UpdateAttendance(access); //Goes to update attendance method to check for any changes in attendance
+			Choice(); //Goes back to choice
 		}
 	}
