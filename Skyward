@@ -2,8 +2,8 @@ import java.util.Scanner;
 public class SkywardCode {
 	private String[] username = { "TikaKude", "halepash000", "caiton000", "kulkaamo000", "sharmkar000" };
 	private String[] password = { "MasterPassword", "correcthorsebatterystaple", "Tr0ub4dor", "mtgisgreat", "2239" };
-	private int[] points = {90, 50, 98, 100}
-	private int[] pointspossible = {100, 100, 100, 100}
+	private int[] points = {90, 50, 98, 100};
+	private int[] pointspossible = {100, 100, 100, 100};
 	private int[] attendance = new int[5];
 	private String[] block1 = { "POE", "AP Stats", "French 3", "AP Calc" };
 	private String[] block2 = { "Spanish 4", "AP Chem", "AP Chem", "Chem X" };
