@@ -10,6 +10,7 @@
 			while (true) {
 				// Loops this forever until they go back to choice
 				int student = 0, where = 0; // Initalizes variables for method and resets them each time. 
+				//Student is choice of student and where is choice of attendance
 				do {
 					// Lists choices for attendance and forces person to choose legitimate number
 					System.out.println(); // Adds some spacing
