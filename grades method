@@ -1,1 +1,21 @@
-
+public void Grade()	{
+	int teachgradchoice;					//if teacher enters 1 allows teacher to enter in an assignment, otherwise doesn't
+	if (access-1==1)		   {				//if access is 1 allows student access/options
+			for (count=0; count<5; count++)		{
+				System.out.println("Your percent grade is " + (double)(points[count]/pointspossible[count])*100 + ".");		/*displays the students
+percent grade*/
+			}
+	Choice();			//this method allows person to choose options from Choice()
+		}
+			
+	else				   {			//if access is not 1, meaning it is 0, displays teacher options for grades
+		System.out.println("Would you like to enter in a new assignment grade.?");	
+		teachgradchoice=reader.nextInt();			//if teacher enters 1 allows teacher to add an assignment, otherwise doesn't allow
+			if	(teachgradchoice==1)
+				points[count]=reader.nextInt();				//teacher enters points earned on an assignment
+				pointspossible[count]=reader.nextInt();		//teach enters in the possible points on an assignment
+			//this function updates the grades for the above if statement
+		Choice();			//this method allows person to choose options from Choice()
+	}
+ 
+}
