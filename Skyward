@@ -1,18 +1,19 @@
 import java.util.Scanner;
 public class SkywardCode {
-	Scanner reader = new Scanner(System.in);
-	private String[] username = {"TikaKude", "halepash000", "caiton000", "kulkaamo000", "mengsha000"};
-	private String[] password = {"MasterPassword", "correcthorsebatterystaple", "Tr0ub4dor", "mtgisgreat", "APStudentSupreme"}; 
-	private int[] grades = new int[5];
+	private String[] username = { "TikaKude", "halepash000", "caiton000", "kulkaamo000", "sharmkar000" };
+	private String[] password = { "MasterPassword", "correcthorsebatterystaple", "Tr0ub4dor", "mtgisgreat", "2239" };
+	private int[] points = {90, 50, 98, 100}
+	private int[] pointspossible = {100, 100, 100, 100}
 	private int[] attendance = new int[5];
-	private int[] block1 = new int[5];
-	private int[] block2 = new int[5];
-	private int[] block3 = new int[5];
-	private int[] block4 = new int[5];
-	
-	private String user, pass; //these are the username and password that the user inputs
-	private int count, access; //this is the loop count and differentiates between teacher and student
-	public int wFormat, hFormat; //These will be variables to create boards
+	private String[] block1 = { "POE", "AP Stats", "French 3", "AP Calc" };
+	private String[] block2 = { "Spanish 4", "AP Chem", "AP Chem", "Chem X" };
+	private String[] block3 = { "AP Chem", "APUSH", "APUSH", "Comp for College" };
+	private String[] block4 = { "AP Comp Sci A", "AP Comp Sci A", "AP Bio", "AP Comp Sci A" };
+
+	private String user, pass; // these are the username and password that the user inputs
+	private int count, access; // this is the loop count and differentiates between a teacher and student
+
+	Scanner reader = new Scanner(System.in);
 	
 	public static void main(String[] arg) {
 		
