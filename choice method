@@ -1,8 +1,9 @@
 public void Choice() {
+//Method to allow user to choose an action to take
   while (true) {
-    int choice = 0;
+    int choice = 0; //Resets choice variable each time
 		    while (true) {
-		    if (choice <= 0 || choice > 5) {
+		    if (choice <= 0 || choice > 5) { //Forces user to stay within bounds
 		      System.out.println("Enter choice of corresponding operation (1-4)");
 		      System.out.println("1: Attendance");
 		      System.out.println("2: Schedule");
@@ -11,7 +12,7 @@ public void Choice() {
 		      System.out.println("5: Quit");
 		      choice = reader.nextInt();
 		    } else {
-		    	  break;
+		    	  break; //Leaves while loop
         }
     }
     
@@ -31,7 +32,9 @@ public void Choice() {
 		break;
 	case 4:
 		//Goes back to login method and "logs out" of current user
-		String dummy = reader.nextLine(); // Big dumm
+		String dummy = reader.nextLine();
+		/* For some reason, when pressing enter, it gets carried over to Login method.
+		We need this dummy string in order to allow for the username to work.
 		Login();
 		break;
 	case 5:
