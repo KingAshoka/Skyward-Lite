@@ -1,15 +1,50 @@
- public void UpdateAttendance(int student) {
- //General method to easily change the attendance of the student
-		if (attendance[student] == 0) {
-    //If value of attendance array for imported student number is 0, prints out present
-			System.out.println("present.");
+ 	public void UpdateAttendance(int student, int when) {
+		// General method to "easily" change the attendance of the student
+		switch (when) {
+		case 1:
+			if (attendanceb1[student] == 0) {
+				System.out.println("present for " + block1[access - 1] + ".");
+			}
+			if (attendanceb1[student] == 1) {
+				System.out.println("tardy for " + block1[access - 1] + ".");
+			}
+			if (attendanceb1[student] == 2) {
+				System.out.println("absent for " + block1[access - 1] + ".");
+			}
+			break;
+		case 2:
+			if (attendanceb2[student] == 0) {
+				System.out.println("present for " + block2[access - 1] + ".");
+			}
+			if (attendanceb2[student] == 1) {
+				System.out.println("tardy for " + block2[access - 1] + ".");
+			}
+			if (attendanceb2[student] == 2) {
+				System.out.println("absent for " + block2[access - 1] + ".");
+			}
+			break;
+		case 3:
+			if (attendanceb3[student] == 0) {
+				System.out.println("present for " + block3[access - 1] + ".");
+			}
+			if (attendanceb3[student] == 1) {
+				System.out.println("tardy for " + block3[access - 1] + ".");
+			}
+			if (attendanceb3[student] == 2) {
+				System.out.println("absent for " + block3[access - 1] + ".");
+			}
+			break;
+		case 4:
+			if (attendanceb4[student] == 0) {
+				System.out.println("present for " + block4[access - 1] + ".");
+			}
+			if (attendanceb4[student] == 1) {
+				System.out.println("tardy for " + block4[access - 1] + ".");
+			}
+			if (attendanceb4[student] == 2) {
+				System.out.println("absent for " + block4[access - 1] + ".");
+			}
+			break;
 		}
-		if (attendance[student] == 1) {
-    //If value of attendance array for imported student number is 1, prints out tardy
-    			System.out.println("tardy.");
-		}
-		if (attendance[student] == 2) {
-    //If value of attendance array for imported student number is 2, prints out absent
-    System.out.println("absent.");
-		}
+
 	}
