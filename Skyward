@@ -281,6 +281,7 @@ public class SkywardCode {
 
 	public static void main(String[] arg) {
 		// Main class of Skyward; will start Skyward project
+		//Take this out of final code, use classes
 		SkywardCode s = new SkywardCode();
 		s.Login();
 		s.Choice();
