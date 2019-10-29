@@ -27,7 +27,7 @@ public class SkywardCode {
 				System.out.println(count + ": " + username[count]); // this creates a list of the usernames
 			}
 			student = reader.nextInt();
-			Schedule(student); //this displays the schedule of the student that the teacher would like to see
+			Schedule(student); // this displays the schedule of the student that the teacher would like to see
 			do {
 				System.out.println("What would you like to do with " + username[student] + "'s schedule?");
 				System.out.println("1: Replace Class");
@@ -36,15 +36,15 @@ public class SkywardCode {
 				choice = reader.nextInt();
 			} while (1 <= choice && choice >= 3);
 			switch (choice) {
-			case 1: //this replaces one class with something that the teacher enters
+			case 1: // this replaces one class with something that the teacher enters
 				System.out.println("Which class would you like to replace?");
-				System.out.println("Block 1: " + block1[student - 1]);
-				System.out.println("Block 2: " + block2[student - 1]);
+				System.out.println("Block 1: " + block1[student - 1]); // these are -1 because a student in position 1
+				System.out.println("Block 2: " + block2[student - 1]); // has their class in position 0
 				System.out.println("Block 3: " + block3[student - 1]);
 				System.out.println("Block 4: " + block4[student - 1]);
 				choice = reader.nextInt();
 				System.out.println("Enter the new class instead");
-				switch (choice) { //this switch statement replaces the correct block
+				switch (choice) { // this switch statement replaces the correct block
 				case 1:
 					dummy = reader.nextLine();
 					block1[student - 1] = reader.nextLine();
@@ -64,23 +64,12 @@ public class SkywardCode {
 				}
 				break;
 			case 2:
-				//Call grades of the class that is chosen
+				// Call grades of the class that is chosen
 				break;
 			case 3:
 				Choice();
 				break;
 			}
-
-		} else { // if student
-			System.out.println(username[access] + "'s schedule is ");
-			System.out.println("Block 1: " + block1[access - 1]);
-			System.out.println("Block 2: " + block2[access - 1]);
-			System.out.println("Block 3: " + block3[access - 1]);
-			System.out.println("Block 4: " + block4[access - 1]);
-			System.out.println();
-			Choice();
-		}
-	}
 
 		} else { // if student
 			System.out.println(username[access] + "'s schedule is ");
@@ -256,5 +245,13 @@ public class SkywardCode {
 				}
 			}
 		} while (allow == 0);
+	}
+
+	public static void main(String[] arg) {
+		// Main class of Skyward; will start Skyward project
+		SkywardCode s = new SkywardCode();
+		s.Login();
+		s.Choice();
+
 	}
 }
