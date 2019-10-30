@@ -1,29 +1,36 @@
 public void Schedule(int user) {
 		int student = 0, choice = 0;
-		if (access == 0) { // if teacher
+		if (user == 0) { // if teacher
 			System.out.println("Choose a student to view the schedule of: ");
-			for (count = 1; count < 4; count++) {
-				System.out.println(count + ": " + username[count]); // this creates a list of the usernames
-			}
-			student = reader.nextInt();
-			Schedule(student); //this displays the schedule of the student that the teacher would like to see
+			do {
+				for (count = 1; count <= 4; count++) {
+					System.out.println(count + ": " + username[count]); // this creates a list of the usernames
+				}
+				System.out.println("5: Go back");
+				student = reader.nextInt();
+				if (student == 5) {
+					Choice();
+				} else {
+					Schedule(student);
+				} // this displays the schedule of the student that the teacher would like to see
+			} while (student < 1 || student > 5);
 			do {
 				System.out.println("What would you like to do with " + username[student] + "'s schedule?");
 				System.out.println("1: Replace Class");
 				System.out.println("2: View Grades in class");
 				System.out.println("3: Quit");
 				choice = reader.nextInt();
-			} while (1 <= choice && choice >= 3);
+			} while (choice < 1 || choice > 3);
 			switch (choice) {
-			case 1: //this replaces one class with something that the teacher enters
+			case 1: // this replaces one class with something that the teacher enters
 				System.out.println("Which class would you like to replace?");
-				System.out.println("Block 1: " + block1[student - 1]);
-				System.out.println("Block 2: " + block2[student - 1]);
+				System.out.println("Block 1: " + block1[student - 1]); // these are -1 because a student in position 1
+				System.out.println("Block 2: " + block2[student - 1]); // has their class in position 0
 				System.out.println("Block 3: " + block3[student - 1]);
 				System.out.println("Block 4: " + block4[student - 1]);
 				choice = reader.nextInt();
 				System.out.println("Enter the new class instead");
-				switch (choice) { //this switch statement replaces the correct block
+				switch (choice) { // this switch statement replaces the correct block
 				case 1:
 					dummy = reader.nextLine();
 					block1[student - 1] = reader.nextLine();
@@ -43,20 +50,19 @@ public void Schedule(int user) {
 				}
 				break;
 			case 2:
-				//Call grades of the class that is chosen
+				// Call grades of the class that is chosen
 				break;
 			case 3:
-				Choice();
+				Schedule(access);
 				break;
 			}
 
 		} else { // if student
-			System.out.println(username[access] + "'s schedule is ");
-			System.out.println("Block 1: " + block1[access - 1]);
-			System.out.println("Block 2: " + block2[access - 1]);
-			System.out.println("Block 3: " + block3[access - 1]);
-			System.out.println("Block 4: " + block4[access - 1]);
+			System.out.println(username[user] + "'s schedule is ");
+			System.out.println("Block 1: " + block1[user - 1]);
+			System.out.println("Block 2: " + block2[user - 1]);
+			System.out.println("Block 3: " + block3[user - 1]);
+			System.out.println("Block 4: " + block4[user - 1]);
 			System.out.println();
-			Choice();
 		}
 	}
