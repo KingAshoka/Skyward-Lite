@@ -34,7 +34,7 @@ public void Choice() {
 		//Goes back to login method and "logs out" of current user
 		String dummy = reader.nextLine();
 		/* For some reason, when pressing enter, it gets carried over to Login method.
-		We need this dummy string in order to allow for the username to work.
+		We need this dummy string in order to allow for the username to work. */
 		Login();
 		break;
 	case 5:
