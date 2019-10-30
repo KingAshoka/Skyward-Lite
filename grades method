@@ -31,7 +31,7 @@ public void Grade() {
 
 		else { // if access is not 1, meaning it is 0, displays teacher options for grades
 			System.out.println("Would you like to enter in a new assignment grade?, press 1 if you want.");
-			System.out.println("If you press a number other than 2 you will go back to skyward options.");
+			System.out.println("If you press a number other than 1 you will go back to skyward options.");
 			teachgradchoice = reader.nextInt(); // if teacher enters 1 allows teacher to add an assignment, otherwise
 												// teacher goes back to choices
 
