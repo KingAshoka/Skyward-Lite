@@ -24,7 +24,7 @@ public void Choice() {
 		break;
 	case 2:
 		//Goes to schedule method if choice = 2
-		Schedule();
+		Schedule(access);
 		break;
 	case 3:
 		//Goes to grades method if choice = 3
