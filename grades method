@@ -6,11 +6,11 @@ public void Grade() {
 		access = reader.nextInt(); // allow user to enter if they are a student or a teacher
 
 		if (access == 1) { // if access is 1 allows student access/options
-			System.out.println("Enter in which student you are, student 1, 2, 3, 4 or 5");
+			System.out.println("Enter in which student you are, student 1, 2, 3, or 4.");
 			count = reader.nextInt() - 1; // count is the student number for the 5 students, person enters which student
 											// they are
 
-			while (count < 0 || count > 4) { // if is not a student number keeps prompting user until enter valid
+			while (count < 0 || count > 3) { // if is not a student number keeps prompting user until enter valid
 												// student number
 				System.out.println("That is not a valid student number, enter a student number again.");
 				count = reader.nextInt() - 1;
@@ -39,10 +39,10 @@ public void Grade() {
 											 * if that is this the case, system goes back to choices method
 											 */
 				System.out.println(
-						"Press what student you would like to add an assignment to, either student 1, 2, 3, 4, or 5.");
+						"Press what student you would like to add an assignment to, either student 1, 2, 3 or 4.");
 				count = reader.nextInt() - 1; // count is the student number that the teacher entered
 
-				while (count < 0 || count > 4) { // if is not a student number keeps prompting user until enter valid
+				while (count < 0 || count > 3) { // if is not a student number keeps prompting user until enter valid
 					// student number
 					System.out.println("That is not a valid student number, enter a student number again.");
 					count = reader.nextInt() - 1;
