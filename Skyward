@@ -196,11 +196,11 @@ public class SkywardCode {
 	}
 
 	public void Attendance(int user) {
-		int when = 0, student = 0, where = 0; // Initializes variables for method
+		int when = 0, student = 0, where = 0; // Initializes variables for method and resets each calling
 		// Student is choice of student, where is choice of attendance, and when is for
 		// block;
 		if (access == 0) {
-			// If person is the teacher
+			// If person is the teacher, will go through this
 			while (true) {
 				// Loops this forever until they go back to choice
 				do {
@@ -211,15 +211,16 @@ public class SkywardCode {
 					System.out.println("2: caiton000");
 					System.out.println("3: kulkaamo000");
 					System.out.println("4: mengsha000");
-					System.out.println("5: Quit");
+					System.out.println("5: Quit Attendance");
 					student = reader.nextInt();
-				} while (student < 1 || student > 5); // Loops continuously until person uses right number
+				} while (student < 1 || student > 5); // Loops continuously until person a number 1-5
 
 				if (student == 5) {
-					// If they chose 5, will go back to choices menu
+					// If they choose 5, will go back to choices menu
 					Choice();
-				} else {
+				} else { //Otherwise goes through this
 					do {
+					//Prompts user to choose specific block of student and stay within 1-4 bounds
 						System.out.println("Which block would you like to attendance for:");
 						System.out.println("1: " + block1[student - 1]);
 						System.out.println("2: " + block2[student - 1]);
@@ -229,6 +230,7 @@ public class SkywardCode {
 					} while (when < 1 || when > 4);
 
 					do {
+					//Prompts user to choose the presense of student for particular block and stay within bounds of 1-3
 						System.out.println("How would you like to edit attendance for " + username[student] + "?");
 						System.out.println("1: Present");
 						System.out.println("2: Tardy");
@@ -237,6 +239,7 @@ public class SkywardCode {
 					} while (where < 1 || where > 3);
 
 					switch (when) {
+					//Switch to edit specific array of block attendance to number relating to where they are
 					case 1:
 						attendanceb1[student] = where - 1;
 						break;
@@ -255,12 +258,14 @@ public class SkywardCode {
 			}
 
 		} else {
+		//If student, then goes through this
 			for (when = 1; when <= 4; when++) {
-				System.out.print("You (" + username[access] + ") are ");
-				UpdateAttendance(access, when);
+			//Loop to display attendance of each block
+				System.out.print("You (" + username[access] + ") are "); //Could have put in Update Attendance, but it works either way
+				UpdateAttendance(access, when); //Goes to Update Attendance Method to display attendance specifically
 			}
-			System.out.println();
-			Choice();
+			System.out.println(); //Adds a bit of formating
+			Choice(); //Goes back to choice method after displaying attendance for student
 		}
 	}
 
