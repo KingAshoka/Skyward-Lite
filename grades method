@@ -2,12 +2,14 @@ public void Grade() {
 		int teachgradchoice; // if teacher enters 1 allows teacher to enter in an assignment, otherwise
 								// doesn't
 		int exit; // if student reads in 2 for exit, goes back to choices
+		int newpointsearn, newtotalpoints;
+		
 		System.out.println("Press 1 if you are a student and 0 if you are a teacher.");
 		access = reader.nextInt(); // allow user to enter if they are a student or a teacher
 
 		if (access == 1) { // if access is 1 allows student access/options
 			System.out.println("Enter in which student you are, student 1, 2, 3, or 4.");
-			count = reader.nextInt() - 1; // count is the student number for the 5 students, person enters which student
+			count = reader.nextInt() - 1; // count is the student number for the 4 students, person enters which student
 											// they are
 
 			while (count < 0 || count > 3) { // if is not a student number keeps prompting user until enter valid
@@ -15,7 +17,7 @@ public void Grade() {
 				System.out.println("That is not a valid student number, enter a student number again.");
 				count = reader.nextInt() - 1;
 			} // if number is an actual student number prints their grade
-			System.out.println("Your percent grade is " + (points[count] / pointspossible[count]) * 100 + "."); // displays
+			System.out.println("Your percent grade is " + (grades[count] / totalpoints[count]) * 100 + "."); // displays
 			// the students percent grade
 
 			do { // runs prompt at least once, then keeps prompting user until they enter a 2
@@ -23,7 +25,7 @@ public void Grade() {
 				System.out.println("Press 2 to go back to options.");
 				exit = reader.nextInt();
 			} while (exit != 2);
-			Choice(); // if exit is 2 students go back to choice method
+			Choice(); // if exit is 2, students go back to choice method
 
 		}
 
@@ -50,10 +52,12 @@ public void Grade() {
 					// assignment for them
 
 				System.out.println("Enter in points earned on the assignment.");
-				points[count] = reader.nextInt(); // teacher enters points earned on an assignment for specific student
+				newpoints = reader.nextInt(); // teacher enters points earned on an assignment for specific student
+				grades[count]+=newpointsearn;	//updates earned points for student
+				
 				System.out.println("Enter in points possible for the assignment.");
-				pointspossible[count] = reader.nextInt(); // teach enters in the possible points on an assignment for
-															// specific student
+				newtotalpoints = reader.nextInt(); // teach enters in the possible points on an assignment for
+				totalpoints[count]+=newtotalpoints	//updates total points for student											// specific student
 				// this function updates the grades for the students
 				System.out.println(
 						"Press 1 to enter in a another assignment, otherwise press another number to go back to choices.");
