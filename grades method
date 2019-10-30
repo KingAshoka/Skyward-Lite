@@ -10,7 +10,7 @@ public void Grade() {
 			count = reader.nextInt() - 1; // count is the student number for the 5 students, person enters which student
 											// they are
 
-			while (count < 1 || count > 5) { // if is not a student number keeps prompting user until enter valid
+			while (count < 0 || count > 4) { // if is not a student number keeps prompting user until enter valid
 												// student number
 				System.out.println("That is not a valid student number, enter a student number again.");
 				count = reader.nextInt() - 1;
@@ -18,7 +18,7 @@ public void Grade() {
 			System.out.println("Your percent grade is " + (points[count] / pointspossible[count]) * 100 + "."); // displays
 			// the students percent grade
 
-			do { // runs prompt at least once if 2 is entered the first time, if 2 entered again
+			do { // runs prompt at least once, then keeps prompting user until they enter a 2
 					// goes to options, if not prompt user again
 				System.out.println("Press 2 to go back to options.");
 				exit = reader.nextInt();
@@ -42,7 +42,7 @@ public void Grade() {
 						"Press what student you would like to add an assignment to, either student 1, 2, 3, 4, or 5.");
 				count = reader.nextInt() - 1; // count is the student number that the teacher entered
 
-				while (count < 1 || count > 5) { // if is not a student number keeps prompting user until enter valid
+				while (count < 0 || count > 4) { // if is not a student number keeps prompting user until enter valid
 					// student number
 					System.out.println("That is not a valid student number, enter a student number again.");
 					count = reader.nextInt() - 1;
