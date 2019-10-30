@@ -1,46 +1,48 @@
-public void Choice() {
-//Method to allow user to choose an action to take
-  while (true) {
-    int choice = 0; //Resets choice variable each time
-		    while (true) {
-		    if (choice <= 0 || choice > 5) { //Forces user to stay within bounds
-		      System.out.println("Enter choice of corresponding operation (1-4)");
-		      System.out.println("1: Attendance");
-		      System.out.println("2: Schedule");
-		      System.out.println("3: Grades");
-		      System.out.println("4: Logout");
-		      System.out.println("5: Quit");
-		      choice = reader.nextInt();
-		    } else {
-		    	  break; //Leaves while loop
-        }
-    }
-    
-    switch (choice) {
-    //Change method names as needed
-    	case 1:
-		//Goes to attendance method if choice = 1
-		Attendance();
-		break;
-	case 2:
-		//Goes to schedule method if choice = 2
-		Schedule(access);
-		break;
-	case 3:
-		//Goes to grades method if choice = 3
-		Grade();
-		break;
-	case 4:
-		//Goes back to login method and "logs out" of current user
-		String dummy = reader.nextLine();
-		/* For some reason, when pressing enter, it gets carried over to Login method.
-		We need this dummy string in order to allow for the username to work. */
-		Login();
-		break;
-	case 5:
-		//Exits program if choice = 5
-		System.exit(0);
+	public void Choice() {
+		// Method to allow user to choose an action to take
+		while (true) {
+			int choice = 0; // Resets choice variable each time
+			while (true) {
+				if (choice <= 0 || choice > 5) { // Forces user to stay within bounds
+					System.out.println("Enter choice of corresponding operation (1-4)");
+					System.out.println("1: Attendance");
+					System.out.println("2: Schedule");
+					System.out.println("3: Grades");
+					System.out.println("4: Logout");
+					System.out.println("5: Quit");
+					choice = reader.nextInt();
+				} else {
+					break; // Leaves while loop
+				}
+			}
+
+			switch (choice) {
+			// Change method names as needed
+			case 1:
+				// Goes to attendance method if choice = 1
+				Attendance(access);
+				break;
+			case 2:
+				// Goes to schedule method if choice = 2
+				Schedule(access);
+				break;
+			case 3:
+				// Goes to grades method if choice = 3
+				Grade();
+				break;
+			case 4:
+				// Goes back to login method and "logs out" of current user
+				dummy = reader.nextLine();
+				/*
+				 * For some reason, when pressing enter, it gets carried over to Login method.
+				 * We need this dummy string in order to allow for the username to work.
+				 */
+				Login();
+				break;
+			case 5:
+				// Exits program if choice = 5
+				System.exit(0);
+			}
+
 		}
-    
 	}
-}
