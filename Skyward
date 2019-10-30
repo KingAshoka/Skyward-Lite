@@ -22,67 +22,32 @@ public class SkywardCode {
 
 	Scanner reader = new Scanner(System.in);
 
-	public void Schedule(int user) {
-		int student = 0, choice = 0;
-		if (access == 0) { // if teacher
-			System.out.println("Choose a student to view the schedule of: ");
-			for (count = 1; count < 4; count++) {
-				System.out.println(count + ": " + username[count]); // this creates a list of the usernames
-			}
-			student = reader.nextInt();
-			Schedule(student); // this displays the schedule of the student that the teacher would like to see
-			do {
-				System.out.println("What would you like to do with " + username[student] + "'s schedule?");
-				System.out.println("1: Replace Class");
-				System.out.println("2: View Grades in class");
-				System.out.println("3: Quit");
-				choice = reader.nextInt();
-			} while (1 <= choice && choice >= 3);
-			switch (choice) {
-			case 1: // this replaces one class with something that the teacher enters
-				System.out.println("Which class would you like to replace?");
-				System.out.println("Block 1: " + block1[student - 1]); // these are -1 because a student in position 1
-				System.out.println("Block 2: " + block2[student - 1]); // has their class in position 0
-				System.out.println("Block 3: " + block3[student - 1]);
-				System.out.println("Block 4: " + block4[student - 1]);
-				choice = reader.nextInt();
-				System.out.println("Enter the new class instead");
-				switch (choice) { // this switch statement replaces the correct block
-				case 1:
-					dummy = reader.nextLine();
-					block1[student - 1] = reader.nextLine();
-					break;
-				case 2:
-					dummy = reader.nextLine();
-					block2[student - 1] = reader.nextLine();
-					break;
-				case 3:
-					dummy = reader.nextLine();
-					block3[student - 1] = reader.nextLine();
-					break;
-				case 4:
-					dummy = reader.nextLine();
-					block4[student - 1] = reader.nextLine();
-					break;
-				}
-				break;
-			case 2:
-				// Call grades of the class that is chosen
-				break;
-			case 3:
-				Choice();
-				break;
-			}
+	public void Login() {
+		int allow = 0; // this determines if the user can access their account
 
-		} else { // if student
-			System.out.println(username[access] + "'s schedule is ");
-			System.out.println("Block 1: " + block1[access - 1]);
-			System.out.println("Block 2: " + block2[access - 1]);
-			System.out.println("Block 3: " + block3[access - 1]);
-			System.out.println("Block 4: " + block4[access - 1]);
-			System.out.println();
-			Choice();
-		}
+		do {
+			System.out.print("Username: ");
+			user = reader.nextLine();
+			System.out.print("Password: ");
+			pass = reader.nextLine();
+			for (count = 0; count < 5; count++) {
+				if (user.equals(username[count])) {
+					if (pass.equals(password[count])) {
+						access = count;
+						allow = 1; // this ends the loop
+						System.out.println("Welcome, " + username[access]);
+					} else {
+						System.out.println("Mismatched password \n"); // \n is a return
+					}
+				} else {
+					if (allow == 0 && count == 4 && user.equals(username[count]) == false) { // these conditions are so
+																								// that
+						System.out.println("Wrong username or password \n"); // wrong message isn't printed out five
+																				// times
+					}
+				}
+			}
+		} while (allow == 0);
 	}
 
 	public void Choice() {
@@ -115,7 +80,7 @@ public class SkywardCode {
 				break;
 			case 3:
 				// Goes to grades method if choice = 3
-				// Grade();
+				Grade();
 				break;
 			case 4:
 				// Goes back to login method and "logs out" of current user
@@ -132,70 +97,6 @@ public class SkywardCode {
 			}
 
 		}
-	}
-
- 	public void UpdateAttendance(int student, int when) {
-		// General method to "easily" change the attendance of the student
-		switch (when) {
-		//From when variable, goes to specific block
-		case 1:
-			if (attendanceb1[student] == 0) {
-			//If the value of the attendance of block 1 for imported student value is 0, will write out as present for specific class
-				System.out.println("present for " + block1[access - 1] + ".");
-			}
-			if (attendanceb1[student] == 1) {
-			//If the value of the attendance of block 1 for imported student value is 1, will write out as tardy for specific class
-				System.out.println("tardy for " + block1[access - 1] + ".");
-			}
-			if (attendanceb1[student] == 2) {
-			//If the value of the attendance of block 1 for imported student value is 2, will write out as absent for specific class
-				System.out.println("absent for " + block1[access - 1] + ".");
-			}
-			break;
-		case 2:
-			if (attendanceb2[student] == 0) {
-			//If the value of the attendance of block 2 for imported student value is 0, will write out as present for specific class
-				System.out.println("present for " + block2[access - 1] + ".");
-			}
-			if (attendanceb2[student] == 1) {
-			//If the value of the attendance of block 2 for imported student value is 1, will write out as tardy for specific class
-				System.out.println("tardy for " + block2[access - 1] + ".");
-			}
-			if (attendanceb2[student] == 2) {
-			//If the value of the attendance of block 2 for imported student value is 2, will write out as absent for specific class
-				System.out.println("absent for " + block2[access - 1] + ".");
-			}
-			break;
-		case 3:
-			if (attendanceb3[student] == 0) {
-			//If the value of the attendance of block 3 for imported student value is 0, will write out as present for specific class
-				System.out.println("present for " + block3[access - 1] + ".");
-			}
-			if (attendanceb3[student] == 1) {
-			//If the value of the attendance of block 3 for imported student value is 1, will write out as tardy for specific class
-				System.out.println("tardy for " + block3[access - 1] + ".");
-			}
-			if (attendanceb3[student] == 2) {
-			//If the value of the attendance of block 3 for imported student value is 2, will write out as absent for specific class
-				System.out.println("absent for " + block3[access - 1] + ".");
-			}
-			break;
-		case 4:
-			if (attendanceb4[student] == 0) {
-			//If the value of the attendance of block 4 for imported student value is 0, will write out as present for specific class
-				System.out.println("present for " + block4[access - 1] + ".");
-			}
-			if (attendanceb4[student] == 1) {
-			//If the value of the attendance of block 4 for imported student value is 1, will write out as tardy for specific class
-				System.out.println("tardy for " + block4[access - 1] + ".");
-			}
-			if (attendanceb4[student] == 2) {
-			//If the value of the attendance of block 4 for imported student value is 2, will write out as absent for specific class
-				System.out.println("absent for " + block4[access - 1] + ".");
-			}
-			break;
-		}
-
 	}
 
 	public void Attendance(int user) {
@@ -221,9 +122,9 @@ public class SkywardCode {
 				if (student == 5) {
 					// If they choose 5, will go back to choices menu
 					Choice();
-				} else { //Otherwise goes through this
+				} else { // Otherwise goes through this
 					do {
-					//Prompts user to choose specific block of student and stay within 1-4 bounds
+						// Prompts user to choose specific block of student and stay within 1-4 bounds
 						System.out.println("Which block would you like to attendance for:");
 						System.out.println("1: " + block1[student - 1]);
 						System.out.println("2: " + block2[student - 1]);
@@ -233,7 +134,8 @@ public class SkywardCode {
 					} while (when < 1 || when > 4);
 
 					do {
-					//Prompts user to choose the presense of student for particular block and stay within bounds of 1-3
+						// Prompts user to choose the presense of student for particular block and stay
+						// within bounds of 1-3
 						System.out.println("How would you like to edit attendance for " + username[student] + "?");
 						System.out.println("1: Present");
 						System.out.println("2: Tardy");
@@ -242,7 +144,8 @@ public class SkywardCode {
 					} while (where < 1 || where > 3);
 
 					switch (when) {
-					//Switch to edit specific array of block attendance to number relating to where they are
+					// Switch to edit specific array of block attendance to number relating to where
+					// they are
 					case 1:
 						attendanceb1[student] = where - 1;
 						break;
@@ -261,51 +164,234 @@ public class SkywardCode {
 			}
 
 		} else {
-		//If student, then goes through this
+			// If student, then goes through this
 			for (when = 1; when <= 4; when++) {
-			//Loop to display attendance of each block
-				System.out.print("You (" + username[access] + ") are "); //Could have put in Update Attendance, but it works either way
-				UpdateAttendance(access, when); //Goes to Update Attendance Method to display attendance specifically
+				// Loop to display attendance of each block
+				System.out.print("You (" + username[access] + ") are "); // Could have put in Update Attendance, but it
+																			// works either way
+				UpdateAttendance(access, when); // Goes to Update Attendance Method to display attendance specifically
 			}
-			System.out.println(); //Adds a bit of formating
-			Choice(); //Goes back to choice method after displaying attendance for student
+			System.out.println(); // Adds a bit of formating
+			Choice(); // Goes back to choice method after displaying attendance for student
 		}
 	}
 
-	public void Login() {
-		int allow = 0; // this determines if the user can access their account
-
-		do {
-			System.out.print("Username: ");
-			user = reader.nextLine();
-			System.out.print("Password: ");
-			pass = reader.nextLine();
-			for (count = 0; count < 5; count++) {
-				if (user.equals(username[count])) {
-					if (pass.equals(password[count])) {
-						access = count;
-						allow = 1; // this ends the loop
-						System.out.println("Welcome, " + username[access]);
-					} else {
-						System.out.println("Mismatched password \n"); // \n is a return
-					}
-				} else {
-					if (allow == 0 && count == 4 && user.equals(username[count]) == false) { // these conditions are so
-																								// that the
-						System.out.println("Wrong username or password \n"); // wrong message isn't printed out five
-																				// times
-					}
-				}
+	public void UpdateAttendance(int student, int when) {
+		// General method to "easily" change the attendance of the student
+		switch (when) {
+		// From when variable, goes to specific block
+		case 1:
+			if (attendanceb1[student] == 0) {
+				// If the value of the attendance of block 1 for imported student value is 0,
+				// will write out as present for specific class
+				System.out.println("present for " + block1[access - 1] + ".");
 			}
-		} while (allow == 0);
+			if (attendanceb1[student] == 1) {
+				// If the value of the attendance of block 1 for imported student value is 1,
+				// will write out as tardy for specific class
+				System.out.println("tardy for " + block1[access - 1] + ".");
+			}
+			if (attendanceb1[student] == 2) {
+				// If the value of the attendance of block 1 for imported student value is 2,
+				// will write out as absent for specific class
+				System.out.println("absent for " + block1[access - 1] + ".");
+			}
+			break;
+		case 2:
+			if (attendanceb2[student] == 0) {
+				// If the value of the attendance of block 2 for imported student value is 0,
+				// will write out as present for specific class
+				System.out.println("present for " + block2[access - 1] + ".");
+			}
+			if (attendanceb2[student] == 1) {
+				// If the value of the attendance of block 2 for imported student value is 1,
+				// will write out as tardy for specific class
+				System.out.println("tardy for " + block2[access - 1] + ".");
+			}
+			if (attendanceb2[student] == 2) {
+				// If the value of the attendance of block 2 for imported student value is 2,
+				// will write out as absent for specific class
+				System.out.println("absent for " + block2[access - 1] + ".");
+			}
+			break;
+		case 3:
+			if (attendanceb3[student] == 0) {
+				// If the value of the attendance of block 3 for imported student value is 0,
+				// will write out as present for specific class
+				System.out.println("present for " + block3[access - 1] + ".");
+			}
+			if (attendanceb3[student] == 1) {
+				// If the value of the attendance of block 3 for imported student value is 1,
+				// will write out as tardy for specific class
+				System.out.println("tardy for " + block3[access - 1] + ".");
+			}
+			if (attendanceb3[student] == 2) {
+				// If the value of the attendance of block 3 for imported student value is 2,
+				// will write out as absent for specific class
+				System.out.println("absent for " + block3[access - 1] + ".");
+			}
+			break;
+		case 4:
+			if (attendanceb4[student] == 0) {
+				// If the value of the attendance of block 4 for imported student value is 0,
+				// will write out as present for specific class
+				System.out.println("present for " + block4[access - 1] + ".");
+			}
+			if (attendanceb4[student] == 1) {
+				// If the value of the attendance of block 4 for imported student value is 1,
+				// will write out as tardy for specific class
+				System.out.println("tardy for " + block4[access - 1] + ".");
+			}
+			if (attendanceb4[student] == 2) {
+				// If the value of the attendance of block 4 for imported student value is 2,
+				// will write out as absent for specific class
+				System.out.println("absent for " + block4[access - 1] + ".");
+			}
+			break;
+		}
+
 	}
 
-	public static void main(String[] arg) {
-		// Main class of Skyward; will start Skyward project
-		//Take this out of final code, use classes
-		SkywardCode s = new SkywardCode();
-		s.Login();
-		s.Choice();
+	public void Schedule(int user) { // this displays the schedule of a student
+		int student = 0, choice = 0;
+		if (user == 0) { // if teacher
+			System.out.println("Choose a student to view the schedule of: ");
+			do {
+				for (count = 1; count <= 4; count++) {
+					System.out.println(count + ": " + username[count]); // this creates a list of the usernames
+				}
+				System.out.println("5: Go back"); // this option is to go back to the terminal
+				student = reader.nextInt();
+				if (student == 5) {
+					Choice(); // go back to terminal if they chose to quit
+				} else {
+					Schedule(student);
+				} // this displays the schedule of the student that the teacher would like to see
+			} while (student < 1 || student > 5);
+			do {
+				System.out.println("What would you like to do with " + username[student] + "'s schedule?");
+				System.out.println("1: Replace Class");
+				System.out.println("2: View Grades in class");
+				System.out.println("3: Quit");
+				choice = reader.nextInt();
+			} while (choice < 1 || choice > 3);
+			switch (choice) {
+			case 1: // this replaces one class with something that the teacher enters
+				System.out.println("Which class would you like to replace?");
+				System.out.println("Block 1: " + block1[student - 1]); // these are -1 because a student in position 1
+				System.out.println("Block 2: " + block2[student - 1]); // has their class in position 0
+				System.out.println("Block 3: " + block3[student - 1]);
+				System.out.println("Block 4: " + block4[student - 1]);
+				choice = reader.nextInt();
+				System.out.println("Enter the new class instead");
+				switch (choice) { // this switch statement replaces the correct block
+				case 1:// these are to replace the block with whatever they chose
+					dummy = reader.nextLine(); // the dummys are because otherwise \n would get read as the new class
+					block1[student - 1] = reader.nextLine();
+					break;
+				case 2: // this replaces the black 2 class
+					dummy = reader.nextLine();
+					block2[student - 1] = reader.nextLine();
+					break;
+				case 3: // replaces the block 3 class
+					dummy = reader.nextLine();
+					block3[student - 1] = reader.nextLine();
+					break;
+				case 4: // replaces the block 4 class
+					dummy = reader.nextLine();
+					block4[student - 1] = reader.nextLine();
+					break;
+				}
+				break;
+			case 2:
+				// Call grades of the class that is chosen
+				// not done yet
+				break;
+			case 3:
+				Schedule(access); // go back to choosing students/choosing to quit
+				break;
+			}
+
+		} else { // if student, it shows their schedule and goes back to choice
+			System.out.println(username[user] + "'s schedule is ");
+			System.out.println("Block 1: " + block1[user - 1]);
+			System.out.println("Block 2: " + block2[user - 1]);
+			System.out.println("Block 3: " + block3[user - 1]);
+			System.out.println("Block 4: " + block4[user - 1]);
+			System.out.println();
+		}
+	}
+
+	public void Grade() {
+		int teachgradchoice; // if teacher enters 1 allows teacher to enter in an assignment, otherwise
+								// doesn't
+		int exit; // if student reads in 2 for exit, goes back to choices
+		int newpointsearn, newtotalpoints;
+
+		System.out.println("Press 1 if you are a student and 0 if you are a teacher.");
+		access = reader.nextInt(); // allow user to enter if they are a student or a teacher
+
+		if (access == 1) { // if access is 1 allows student access/options
+			System.out.println("Enter in which student you are, student 1, 2, 3, or 4.");
+			count = reader.nextInt() - 1; // count is the student number for the 4 students, person enters which student
+											// they are
+
+			while (count < 0 || count > 3) { // if is not a student number keeps prompting user until enter valid
+												// student number
+				System.out.println("That is not a valid student number, enter a student number again.");
+				count = reader.nextInt() - 1;
+			} // if number is an actual student number prints their grade
+			System.out.println("Your percent grade is " + (grades[count] / totalpoints[count]) * 100 + "."); // displays
+			// the students percent grade
+
+			do { // runs prompt at least once, then keeps prompting user until they enter a 2
+					// goes to options, if not prompt user again
+				System.out.println("Press 2 to go back to options.");
+				exit = reader.nextInt();
+			} while (exit != 2);
+			Choice(); // if exit is 2, students go back to choice method
+		}
+
+		else { // if access is not 1, meaning it is 0, displays teacher options for grades
+			System.out.println("Would you like to enter in a new assignment grade?, press 1 if you want.");
+			System.out.println("If you press a number other than 1 you will go back to skyward options.");
+			teachgradchoice = reader.nextInt(); // if teacher enters 1 allows teacher to add an assignment, otherwise
+												// teacher goes back to choices
+
+			while (teachgradchoice == 1) { /*
+											 * if teachgradchoice is 1 allows teacher to enter assignment, keeps
+											 * repeating until the value of teachgradchoicevariable entered in is not 1,
+											 * if that is this the case, system goes back to choices method
+											 */
+				System.out.println(
+						"Press what student you would like to add an assignment to, either student 1, 2, 3 or 4.");
+				count = reader.nextInt() - 1; // count is the student number that the teacher entered
+
+				while (count < 0 || count > 3) { // if is not a student number keeps prompting user until enter valid
+					// student number
+					System.out.println("That is not a valid student number, enter a student number again.");
+					count = reader.nextInt() - 1;
+				} // if number is an actual student number allows teacher to enter in an
+					// assignment for them
+
+				System.out.println("Enter in points earned on the assignment.");
+				newpointsearn = reader.nextInt(); // teacher enters points earned on an assignment for specific student
+				grades[count] += newpointsearn; // updates earned points for student
+
+				System.out.println("Enter in points possible for the assignment.");
+				newtotalpoints = reader.nextInt(); // teach enters in the possible points on an assignment for
+				totalpoints[count] += newtotalpoints; // updates total points for student // specific student
+				// this function updates the grades for the students
+				System.out.println(
+						"Press 1 to enter in a another assignment, otherwise press another number to go back to choices.");
+				teachgradchoice = reader.nextInt(); // if number other than 1 is press, exits loop and system goes back
+													// to choices method
+			}
+
+			Choice();
+
+		}
 
 	}
+
 }
