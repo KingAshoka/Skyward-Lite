@@ -131,50 +131,63 @@ public class SkywardCode {
 		}
 	}
 
-	public void UpdateAttendance(int student, int when) {
+ 	public void UpdateAttendance(int student, int when) {
 		// General method to "easily" change the attendance of the student
 		switch (when) {
+		//From when variable, goes to specific block
 		case 1:
 			if (attendanceb1[student] == 0) {
+			//If the value of the attendance of block 1 for imported student value is 0, will write out as present for specific class
 				System.out.println("present for " + block1[access - 1] + ".");
 			}
 			if (attendanceb1[student] == 1) {
+			//If the value of the attendance of block 1 for imported student value is 1, will write out as tardy for specific class
 				System.out.println("tardy for " + block1[access - 1] + ".");
 			}
 			if (attendanceb1[student] == 2) {
+			//If the value of the attendance of block 1 for imported student value is 2, will write out as absent for specific class
 				System.out.println("absent for " + block1[access - 1] + ".");
 			}
 			break;
 		case 2:
 			if (attendanceb2[student] == 0) {
+			//If the value of the attendance of block 2 for imported student value is 0, will write out as present for specific class
 				System.out.println("present for " + block2[access - 1] + ".");
 			}
 			if (attendanceb2[student] == 1) {
+			//If the value of the attendance of block 2 for imported student value is 1, will write out as tardy for specific class
 				System.out.println("tardy for " + block2[access - 1] + ".");
 			}
 			if (attendanceb2[student] == 2) {
+			//If the value of the attendance of block 2 for imported student value is 2, will write out as absent for specific class
 				System.out.println("absent for " + block2[access - 1] + ".");
 			}
 			break;
 		case 3:
 			if (attendanceb3[student] == 0) {
+			//If the value of the attendance of block 3 for imported student value is 0, will write out as present for specific class
 				System.out.println("present for " + block3[access - 1] + ".");
 			}
 			if (attendanceb3[student] == 1) {
+			//If the value of the attendance of block 3 for imported student value is 1, will write out as tardy for specific class
 				System.out.println("tardy for " + block3[access - 1] + ".");
 			}
 			if (attendanceb3[student] == 2) {
+			//If the value of the attendance of block 3 for imported student value is 2, will write out as absent for specific class
 				System.out.println("absent for " + block3[access - 1] + ".");
 			}
 			break;
 		case 4:
 			if (attendanceb4[student] == 0) {
+			//If the value of the attendance of block 4 for imported student value is 0, will write out as present for specific class
 				System.out.println("present for " + block4[access - 1] + ".");
 			}
 			if (attendanceb4[student] == 1) {
+			//If the value of the attendance of block 4 for imported student value is 1, will write out as tardy for specific class
 				System.out.println("tardy for " + block4[access - 1] + ".");
 			}
 			if (attendanceb4[student] == 2) {
+			//If the value of the attendance of block 4 for imported student value is 2, will write out as absent for specific class
 				System.out.println("absent for " + block4[access - 1] + ".");
 			}
 			break;
