@@ -52,12 +52,12 @@ public void Grade() {
 					// assignment for them
 
 				System.out.println("Enter in points earned on the assignment.");
-				newpoints = reader.nextInt(); // teacher enters points earned on an assignment for specific student
+				newpointsearn = reader.nextInt(); // teacher enters points earned on an assignment for specific student
 				grades[count]+=newpointsearn;	//updates earned points for student
 				
 				System.out.println("Enter in points possible for the assignment.");
 				newtotalpoints = reader.nextInt(); // teach enters in the possible points on an assignment for
-				totalpoints[count]+=newtotalpoints	//updates total points for student											// specific student
+				totalpoints[count]+=newtotalpoints;	//updates total points for student											// specific student
 				// this function updates the grades for the students
 				System.out.println(
 						"Press 1 to enter in a another assignment, otherwise press another number to go back to choices.");
