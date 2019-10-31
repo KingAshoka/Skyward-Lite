@@ -15,12 +15,11 @@ public void Schedule(int user) { // this displays the schedule of a student
 				} // this displays the schedule of the student that the teacher would like to see
 			} while (student < 1 || student > 5);
 			do {
-				System.out.println("What would you like to do with " + username[student] + "'s schedule?");
+				System.out.println("Would you like to alter " + username[student] + "'s schedule?");
 				System.out.println("1: Replace Class");
-				System.out.println("2: View Grades in class");
-				System.out.println("3: Quit");
+				System.out.println("2: Go back");
 				choice = reader.nextInt();
-			} while (choice < 1 || choice > 3);
+			} while (choice < 1 || choice > 2);
 			switch (choice) {
 			case 1: // this replaces one class with something that the teacher enters
 				System.out.println("Which class would you like to replace?");
@@ -59,11 +58,26 @@ public void Schedule(int user) { // this displays the schedule of a student
 			}
 
 		} else { // if student, it shows their schedule and goes back to choice
-			System.out.println(username[user] + "'s schedule is ");
+			System.out.println(username[user] + "'s schedule is "); // the actual schedule
 			System.out.println("Block 1: " + block1[user - 1]);
 			System.out.println("Block 2: " + block2[user - 1]);
 			System.out.println("Block 3: " + block3[user - 1]);
 			System.out.println("Block 4: " + block4[user - 1]);
 			System.out.println();
-		} 
+			if (access != 0) { // this is so that the teacher doesn't get these options when checking the
+								// student's schedule
+				System.out.println("What would you like to do?");
+				System.out.println("1: Register for new class");
+				System.out.println("2: Go back");
+				choice = reader.nextInt();
+				switch (choice) {
+				case 1: // if they want to register
+					Register(access);
+					break;
+				case 2:
+					Choice();
+					break;
+				}
+			}
+		}
 	}
