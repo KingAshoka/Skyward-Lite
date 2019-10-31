@@ -6,8 +6,8 @@ public class SkywardCode {
 	private String dummy = "";
 	private String[] username = { "TikaKude", "halepash000", "caiton000", "kulkaamo000", "sharmkar000" };
 	private String[] password = { "MasterPassword", "correcthorsebatterystaple", "Tr0ub4dor", "mtgisgreat", "2239" };
-	private int[] grades = { 90, 95, 98, 100 };
-	private int[] totalpoints = { 100, 100, 100, 100 };
+	private double [] grades = { 90, 95, 98, 100 };
+	private double[] totalpoints = { 100, 100, 100, 100 };
 	private int[] attendanceb1 = new int[4];
 	private int[] attendanceb2 = new int[4];
 	private int[] attendanceb3 = new int[4];
