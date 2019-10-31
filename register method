@@ -1,3 +1,23 @@
-public void Register() {
-  //Do something that will allow teacher to create classes for all students or for each student to register individually.
-}
+public void Register(int user) {
+		int blockchoice;
+		String newclass;
+		System.out.println("Which block would you like to replace?");
+		blockchoice = reader.nextInt();
+		dummy = reader.nextLine();
+		System.out.println("What is the new class you'd like?");
+		newclass = reader.nextLine();
+		switch (blockchoice) {
+		case 1:
+			block1[access - 1] = newclass;
+			break;
+		case 2:
+			block2[access - 1] = newclass;
+			break;
+		case 3:
+			block3[access - 1] = newclass;
+			break;
+		case 4:
+			block4[access - 1] = newclass;
+			break;
+		}
+	}
