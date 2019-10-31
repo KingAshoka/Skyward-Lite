@@ -2,23 +2,32 @@ package Arrays;
 
 import java.util.Scanner;
 
-public class SkywardCode {
-	private String dummy = "";
+public class Skyward {
+
+	// general variables
+	private String dummy = ""; // this is so the strings are read correctly
+	private int count, access; // this is the loop counter and differentiates between a teacher and student
+
+	// Login method arrays
+	private String user, pass; // these are the username and password that the user inputs
 	private String[] username = { "TikaKude", "halepash000", "caiton000", "kulkaamo000", "sharmkar000" };
 	private String[] password = { "MasterPassword", "correcthorsebatterystaple", "Tr0ub4dor", "mtgisgreat", "2239" };
-	private double[] grades = { 90, 95, 98, 100 };
-	private double[] totalpoints = { 100, 100, 100, 100 };
-	private int[] attendanceb1 = new int[4];
-	private int[] attendanceb2 = new int[4];
-	private int[] attendanceb3 = new int[4];
-	private int[] attendanceb4 = new int[4];
-	private String[] block1 = { "POE", "AP Stats", "French 3", "AP Calc" };
+
+	// Schedule method arrays
+	private String[] block1 = { "POE", "AP Stats", "French 3", "AP Calc" }; // for the schedule method
 	private String[] block2 = { "Spanish 4", "AP Chem", "AP Chem", "Chem X" };
 	private String[] block3 = { "AP Chem", "APUSH", "APUSH", "Comp for College" };
 	private String[] block4 = { "AP Comp Sci A", "AP Comp Sci A", "AP Bio", "AP Comp Sci A" };
 
-	private String user, pass; // these are the username and password that the user inputs
-	private int count, access; // this is the loop counter and differentiates between a teacher and student
+	// Attendance methods arrays
+	private int[] attendanceb1 = new int[4]; // for the attendance methods
+	private int[] attendanceb2 = new int[4];
+	private int[] attendanceb3 = new int[4];
+	private int[] attendanceb4 = new int[4];
+
+	// Grades method arrays
+	private double[] grades = { 90, 95, 98, 100 };
+	private double[] totalpoints = { 100, 100, 100, 100 };
 
 	Scanner reader = new Scanner(System.in);
 
@@ -61,7 +70,7 @@ public class SkywardCode {
 					System.out.println("2: Schedule");
 					System.out.println("3: Grades");
 					System.out.println("4: Logout");
-					System.out.println("5: Quit Program");
+					System.out.println("5: Quit");
 					choice = reader.nextInt();
 				} else {
 					break; // Leaves while loop
@@ -99,7 +108,7 @@ public class SkywardCode {
 		}
 	}
 
-	public void Attendance(int user) {
+	public void Attendance(int user) { // user is replaced by access when called
 		int when = 0, student = 0, where = 0; // Initializes variables for method and resets each calling
 		// Student is choice of student, where is choice of attendance, and when is for
 		// block;
@@ -269,12 +278,11 @@ public class SkywardCode {
 				} // this displays the schedule of the student that the teacher would like to see
 			} while (student < 1 || student > 5);
 			do {
-				System.out.println("What would you like to do with " + username[student] + "'s schedule?");
+				System.out.println("Would you like to alter " + username[student] + "'s schedule?");
 				System.out.println("1: Replace Class");
-				System.out.println("2: View Grades in class");
-				System.out.println("3: Quit Schedule");
+				System.out.println("2: Go back");
 				choice = reader.nextInt();
-			} while (choice < 1 || choice > 3);
+			} while (choice < 1 || choice > 2);
 			switch (choice) {
 			case 1: // this replaces one class with something that the teacher enters
 				System.out.println("Which class would you like to replace?");
@@ -313,12 +321,51 @@ public class SkywardCode {
 			}
 
 		} else { // if student, it shows their schedule and goes back to choice
-			System.out.println(username[user] + "'s schedule is ");
+			System.out.println(username[user] + "'s schedule is "); // the actual schedule
 			System.out.println("Block 1: " + block1[user - 1]);
 			System.out.println("Block 2: " + block2[user - 1]);
 			System.out.println("Block 3: " + block3[user - 1]);
 			System.out.println("Block 4: " + block4[user - 1]);
 			System.out.println();
+			if (access != 0) { // this is so that the teacher doesn't get these options when checking the
+								// student's schedule
+				System.out.println("What would you like to do?");
+				System.out.println("1: Register for new class");
+				System.out.println("2: Go back");
+				choice = reader.nextInt();
+				switch (choice) {
+				case 1: // if they want to register
+					Register(access);
+					break;
+				case 2:
+					Choice();
+					break;
+				}
+			}
+		}
+	}
+
+	public void Register(int user) {
+		int blockchoice;
+		String newclass;
+		System.out.println("Which block would you like to replace?");
+		blockchoice = reader.nextInt();
+		dummy = reader.nextLine();
+		System.out.println("What is the new class you'd like?");
+		newclass = reader.nextLine();
+		switch (blockchoice) {
+		case 1:
+			block1[access - 1] = newclass;
+			break;
+		case 2:
+			block2[access - 1] = newclass;
+			break;
+		case 3:
+			block3[access - 1] = newclass;
+			break;
+		case 4:
+			block4[access - 1] = newclass;
+			break;
 		}
 	}
 
@@ -383,7 +430,13 @@ public class SkywardCode {
 			// the students percent grade
 			Choice(); // Goes back to choice
 		}
-
 	}
 
+	public static void main(String[] arg) {
+		// Main class of Skyward; will start Skyward project
+		Skyward s = new Skyward();
+		s.Login();
+		s.Choice();
+
+	}
 }
