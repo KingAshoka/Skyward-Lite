@@ -1,6 +1,8 @@
+package Arrays;
+
 import java.util.Scanner;
 
-public class Skyward {
+public class SkywardCode {
 
 	// general variables
 	private String dummy = ""; // this is so the strings are read correctly
@@ -10,7 +12,7 @@ public class Skyward {
 	private String user, pass; // these are the username and password that the user inputs
 	private String[] username = { "TikaKude", "halepash000", "caiton000", "kulkaamo000", "sharmkar000" };
 	private String[] password = { "MasterPassword", "correcthorsebatterystaple", "Tr0ub4dor", "mtgisgreat", "2239" };
- 
+
 	// Schedule method arrays
 	private String[] block1 = { "POE", "AP Stats", "French 3", "AP Calc" }; // for the schedule method
 	private String[] block2 = { "Spanish 4", "AP Chem", "AP Chem", "Chem X" };
@@ -383,6 +385,11 @@ public class Skyward {
 		if (access == 0) { // if access is 0 allows teacher access/options
 			while (true) {
 				do {
+					for (count = 0; count < 4; count++) {
+						System.out.println(username[count + 1] + "'s grade is "
+								+ (grades[count] / totalpoints[count]) * 100 + "%");
+					} // this prints out all the students' grades
+					System.out.println();
 					System.out.println("Would you like to enter in a new assignment grade?");
 					// Prompts user to add new grade or go back to options
 					System.out.println("1: Enter new grade");
