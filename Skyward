@@ -10,7 +10,7 @@ public class Skyward {
 	private String user, pass; // these are the username and password that the user inputs
 	private String[] username = { "TikaKude", "halepash000", "caiton000", "kulkaamo000", "sharmkar000" };
 	private String[] password = { "MasterPassword", "correcthorsebatterystaple", "Tr0ub4dor", "mtgisgreat", "2239" };
-
+ 
 	// Schedule method arrays
 	private String[] block1 = { "POE", "AP Stats", "French 3", "AP Calc" }; // for the schedule method
 	private String[] block2 = { "Spanish 4", "AP Chem", "AP Chem", "Chem X" };
